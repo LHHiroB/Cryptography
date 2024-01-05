@@ -1,0 +1,1273 @@
+<?xml version="1.0" ?>
+  <root>
+    
+  
+    <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+      
+    
+      <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+      
+    
+      <xsd:element name="root" msdata:IsDataSet="true">
+        
+      
+        <xsd:complexType>
+          
+        
+          <xsd:choice maxOccurs="unbounded">
+            
+          
+            <xsd:element name="metadata">
+              
+            
+              <xsd:complexType>
+                
+              
+                <xsd:sequence>
+                  
+                
+                  <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                  
+              
+                </xsd:sequence>
+                
+              
+                <xsd:attribute name="name" use="required" type="xsd:string"/>
+                
+              
+                <xsd:attribute name="type" type="xsd:string"/>
+                
+              
+                <xsd:attribute name="mimetype" type="xsd:string"/>
+                
+              
+                <xsd:attribute ref="xml:space"/>
+                
+            
+              </xsd:complexType>
+              
+          
+            </xsd:element>
+            
+          
+            <xsd:element name="assembly">
+              
+            
+              <xsd:complexType>
+                
+              
+                <xsd:attribute name="alias" type="xsd:string"/>
+                
+              
+                <xsd:attribute name="name" type="xsd:string"/>
+                
+            
+              </xsd:complexType>
+              
+          
+            </xsd:element>
+            
+          
+            <xsd:element name="data">
+              
+            
+              <xsd:complexType>
+                
+              
+                <xsd:sequence>
+                  
+                
+                  <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                  
+                
+                  <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                  
+              
+                </xsd:sequence>
+                
+              
+                <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                
+              
+                <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                
+              
+                <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                
+              
+                <xsd:attribute ref="xml:space"/>
+                
+            
+              </xsd:complexType>
+              
+          
+            </xsd:element>
+            
+          
+            <xsd:element name="resheader">
+              
+            
+              <xsd:complexType>
+                
+              
+                <xsd:sequence>
+                  
+                
+                  <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                  
+              
+                </xsd:sequence>
+                
+              
+                <xsd:attribute name="name" type="xsd:string" use="required"/>
+                
+            
+              </xsd:complexType>
+              
+          
+            </xsd:element>
+            
+        
+          </xsd:choice>
+          
+      
+        </xsd:complexType>
+        
+    
+      </xsd:element>
+      
+  
+    </xsd:schema>
+    
+  
+    <resheader name="resmimetype">
+      
+    
+      <value>text/microsoft-resx</value>
+      
+  
+    </resheader>
+    
+  
+    <resheader name="version">
+      
+    
+      <value>2.0</value>
+      
+  
+    </resheader>
+    
+  
+    <resheader name="reader">
+      
+    
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+      
+  
+    </resheader>
+    
+  
+    <resheader name="writer">
+      
+    
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+      
+  
+    </resheader>
+    
+
+    <data name="CompanyName" xml:space="preserve">
+      <value>IO Stream</value>
+    </data>
+    <data name="CompanyFullName" xml:space="preserve">
+      <value>IO Stream 会社限定</value>
+    </data>
+    <data name="All" xml:space="preserve">
+      <value>全て</value>
+    </data>
+    <data name="Activate" xml:space="preserve">
+      <value>活性化</value>
+    </data>
+    <data name="ActivateAll" xml:space="preserve">
+      <value>すべてをアクティブ化する</value>
+    </data>
+    <data name="AddFiles" xml:space="preserve">
+      <value>追加ファイル</value>
+    </data>
+    <data name="AddFilesOrFolder" xml:space="preserve">
+      <value>ファイルまたはフォルダーを追加する</value>
+    </data>
+    <data name="Add" xml:space="preserve">
+      <value>追加</value>
+    </data>
+    <data name="After" xml:space="preserve">
+      <value>後</value>
+    </data>
+    <data name="Apply" xml:space="preserve">
+      <value>申し込み</value>
+    </data>
+    <data name="Argument" xml:space="preserve">
+      <value>引数</value>
+    </data>
+    <data name="Arguments" xml:space="preserve">
+      <value>引数</value>
+    </data>
+    <data name="Auto" xml:space="preserve">
+      <value>自動</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+      <value>キャンセル</value>
+    </data>
+    <data name="Clear" xml:space="preserve">
+      <value>クリア</value>
+    </data>
+    <data name="ClearAll" xml:space="preserve">
+      <value>すべてクリア</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+      <value>近い</value>
+    </data>
+    <data name="Closing" xml:space="preserve">
+      <value>閉鎖</value>
+    </data>
+    <data name="ConfirmPassword" xml:space="preserve">
+      <value>パスワードを認証する</value>
+    </data>
+    <data name="Copied" xml:space="preserve">
+      <value>コピーされました</value>
+    </data>
+    <data name="Copy" xml:space="preserve">
+      <value>コピー</value>
+    </data>
+    <data name="Day" xml:space="preserve">
+      <value>日</value>
+    </data>
+    <data name="Days" xml:space="preserve">
+      <value>日</value>
+    </data>
+    <data name="Dashboard" xml:space="preserve">
+      <value>ダッシュボード</value>
+    </data>
+    <data name="Deactivate" xml:space="preserve">
+      <value>非アクティブ化</value>
+    </data>
+    <data name="DeactivateAll" xml:space="preserve">
+      <value>すべてを無効化する</value>
+    </data>
+    <data name="Default" xml:space="preserve">
+      <value>デフォルト</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+      <value>消去</value>
+    </data>
+    <data name="DeleteAll" xml:space="preserve">
+      <value>すべて削除</value>
+    </data>
+    <data name="Difference" xml:space="preserve">
+      <value>違い</value>
+    </data>
+    <data name="Disable" xml:space="preserve">
+      <value>無効にする</value>
+    </data>
+    <data name="DisableAll" xml:space="preserve">
+      <value>すべて無効にします</value>
+    </data>
+    <data name="Download" xml:space="preserve">
+      <value>ダウンロード</value>
+    </data>
+    <data name="Enable" xml:space="preserve">
+      <value>有効にする</value>
+    </data>
+    <data name="EnableAll" xml:space="preserve">
+      <value>全て可能にする</value>
+    </data>
+    <data name="Entry" xml:space="preserve">
+      <value>エントリ</value>
+    </data>
+    <data name="Exit" xml:space="preserve">
+      <value>出口</value>
+    </data>
+    <data name="Expired" xml:space="preserve">
+      <value>期限切れ</value>
+    </data>
+    <data name="File" xml:space="preserve">
+      <value>ファイル</value>
+    </data>
+    <data name="Files" xml:space="preserve">
+      <value>ファイル</value>
+    </data>
+    <data name="Folder" xml:space="preserve">
+      <value>フォルダ</value>
+    </data>
+    <data name="Follow" xml:space="preserve">
+      <value>フォローする</value>
+    </data>
+    <data name="Gallery" xml:space="preserve">
+      <value>ギャラリー</value>
+    </data>
+    <data name="Hour" xml:space="preserve">
+      <value>時</value>
+    </data>
+    <data name="Hours" xml:space="preserve">
+      <value>時</value>
+    </data>
+    <data name="Item" xml:space="preserve">
+      <value>アイテム</value>
+    </data>
+    <data name="Items" xml:space="preserve">
+      <value>アイテム</value>
+    </data>
+    <data name="Last" xml:space="preserve">
+      <value>最後</value>
+    </data>
+    <data name="Later" xml:space="preserve">
+      <value>後で</value>
+    </data>
+    <data name="LearnMore" xml:space="preserve">
+      <value>もっと詳しく知る</value>
+    </data>
+    <data name="Load" xml:space="preserve">
+      <value>ロード</value>
+    </data>
+    <data name="Location" xml:space="preserve">
+      <value>位置</value>
+    </data>
+    <data name="Minute" xml:space="preserve">
+      <value>分</value>
+    </data>
+    <data name="Minutes" xml:space="preserve">
+      <value>分</value>
+    </data>
+    <data name="Missing" xml:space="preserve">
+      <value>ない</value>
+    </data>
+    <data name="Month" xml:space="preserve">
+      <value>月</value>
+    </data>
+    <data name="Months" xml:space="preserve">
+      <value>月</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+      <value>名前</value>
+    </data>
+    <data name="None" xml:space="preserve">
+      <value>なし</value>
+    </data>
+    <data name="Ok" xml:space="preserve">
+      <value>OK</value>
+    </data>
+    <data name="Okay" xml:space="preserve">
+      <value>Okay</value>
+    </data>
+    <data name="Open" xml:space="preserve">
+      <value>開ける</value>
+    </data>
+    <data name="Password" xml:space="preserve">
+      <value>パスワード</value>
+    </data>
+    <data name="Paste" xml:space="preserve">
+      <value>ペースト</value>
+    </data>
+    <data name="Pause" xml:space="preserve">
+      <value>一時停止</value>
+    </data>
+    <data name="PlusCopy" xml:space="preserve">
+      <value>+コピー</value>
+    </data>
+    <data name="Publisher" xml:space="preserve">
+      <value>出版社</value>
+    </data>
+    <data name="Quality" xml:space="preserve">
+      <value>品質</value>
+    </data>
+    <data name="Reload" xml:space="preserve">
+      <value>リロード</value>
+    </data>
+    <data name="Remove" xml:space="preserve">
+      <value>削除</value>
+    </data>
+    <data name="RemoveAll" xml:space="preserve">
+      <value>すべて削除する</value>
+    </data>
+    <data name="Restart" xml:space="preserve">
+      <value>再起動</value>
+    </data>
+    <data name="Resume" xml:space="preserve">
+      <value>履歴書</value>
+    </data>
+    <data name="Run" xml:space="preserve">
+      <value>走る</value>
+    </data>
+    <data name="RunAll" xml:space="preserve">
+      <value>すべて実行</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+      <value>保存</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+      <value>検索</value>
+    </data>
+    <data name="Second" xml:space="preserve">
+      <value>秒</value>
+    </data>
+    <data name="Seconds" xml:space="preserve">
+      <value>秒</value>
+    </data>
+    <data name="Select" xml:space="preserve">
+      <value>選択する</value>
+    </data>
+    <data name="SelectAll" xml:space="preserve">
+      <value>すべて選択</value>
+    </data>
+    <data name="Send" xml:space="preserve">
+      <value>送信</value>
+    </data>
+    <data name="Stop" xml:space="preserve">
+      <value>ストップ</value>
+    </data>
+    <data name="Then" xml:space="preserve">
+      <value>それから</value>
+    </data>
+    <data name="Time" xml:space="preserve">
+      <value>時間</value>
+    </data>
+    <data name="Transparent" xml:space="preserve">
+      <value>透明</value>
+    </data>
+    <data name="Unknown" xml:space="preserve">
+      <value>知らない</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+      <value>アップデート</value>
+    </data>
+    <data name="UpdateAll" xml:space="preserve">
+      <value>すべて更新</value>
+    </data>
+    <data name="Year" xml:space="preserve">
+      <value>年</value>
+    </data>
+    <data name="Years" xml:space="preserve">
+      <value>年</value>
+    </data>
+    <data name="LockScreen" xml:space="preserve">
+      <value>ロック画面</value>
+    </data>
+    <data name="Sleep" xml:space="preserve">
+      <value>寝る</value>
+    </data>
+    <data name="Restart" xml:space="preserve">
+      <value>再起動</value>
+    </data>
+    <data name="Shutdown" xml:space="preserve">
+      <value>シャットダウン</value>
+    </data>
+    <data name="From" xml:space="preserve">
+      <value>から</value>
+    </data>
+    <data name="To" xml:space="preserve">
+      <value>まで</value>
+    </data>
+    <data name="Import" xml:space="preserve">
+      <value>輸入</value>
+    </data>
+    <data name="Export" xml:space="preserve">
+      <value>輸出</value>
+    </data>
+    <data name="Media" xml:space="preserve">
+      <value>メディア</value>
+    </data>
+    <data name="Video" xml:space="preserve">
+      <value>ビデオ</value>
+    </data>
+    <data name="Audio" xml:space="preserve">
+      <value>オーディオ</value>
+    </data>
+    <data name="Image" xml:space="preserve">
+      <value>画像</value>
+    </data>
+    <data name="Images" xml:space="preserve">
+      <value>画像</value>
+    </data>
+    <data name="Refresh" xml:space="preserve">
+      <value>リフレッシュ</value>
+    </data>
+    <data name="Play" xml:space="preserve">
+      <value>遊ぶ</value>
+    </data>
+    <data name="Ignore" xml:space="preserve">
+      <value>無視する</value>
+    </data>
+    <data name="Unlock" xml:space="preserve">
+      <value>ロックを解除する</value>
+    </data>
+    <data name="Convert" xml:space="preserve">
+      <value>変換する</value>
+    </data>
+    <data name="Properties" xml:space="preserve">
+      <value>プロパティ</value>
+    </data>
+    <data name="Advanced" xml:space="preserve">
+      <value>高度な</value>
+    </data>
+    <data name="DeleteSelected" xml:space="preserve">
+      <value>選択を削除します</value>
+    </data>
+    <data name="RemoveSelected" xml:space="preserve">
+      <value>削除選択</value>
+    </data>
+    <data name="MakeDefault" xml:space="preserve">
+      <value>デフォルトにします</value>
+    </data>
+    <data name="NothingInList" xml:space="preserve">
+      <value>リストには何もありません</value>
+    </data>
+    <data name="OpenWithDefaultApp" xml:space="preserve">
+      <value>デフォルトのアプリで開く</value>
+    </data>
+    <data name="ClearItemList" xml:space="preserve">
+      <value>クリアアイテムリスト？</value>
+    </data>
+    <data name="ClearSelectedItems" xml:space="preserve">
+      <value>選択した項目をクリア?</value>
+    </data>
+    <data name="OverwriteExistingFiles" xml:space="preserve">
+      <value>現在のファイルを上書きする</value>
+    </data>
+    <data name="UnknownError" xml:space="preserve">
+      <value>不明なエラ</value>
+    </data>
+    <data name="FileOrFolderDoesNotExist" xml:space="preserve">
+      <value>ファイルまたはフォルダが存在しません</value>
+    </data>
+    <data name="LoadCorruptedSomeFiles" xml:space="preserve">
+      <value>一部のファイルまたはフォルダーは破損しており、開くことはできません</value>
+    </data>
+    <data name="LoadCorruptedFile" xml:space="preserve">
+      <value>開こうとしているファイルはサポートされていないか壊れています。別の形式でもう一度お試しください</value>
+    </data>
+    <data name="CannotBeUndone" xml:space="preserve">
+      <value>この操作は元に戻せません</value>
+    </data>
+    <data name="OutputFolderMustBeSet" xml:space="preserve">
+      <value>Output folder must be set</value>
+    </data>
+    <data name="IncorrectPassword" xml:space="preserve">
+      <value>パスワードが間違っています</value>
+    </data>
+    <data name="PasswordIsNotEmpty" xml:space="preserve">
+      <value>パスワードが空ではありません</value>
+    </data>
+    <data name="PasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+      <value>パスワードと確認パスワードが一致しません</value>
+    </data>
+    <data name="RevealInFileExplorer" xml:space="preserve">
+      <value>エクスプローラーで表示する</value>
+    </data>
+    <data name="OpenFileAfterProcessing" xml:space="preserve">
+      <value>処理後にファイルを開きます</value>
+    </data>
+    <data name="KeepPcAwakeWhileProcessing" xml:space="preserve">
+      <value>処理中にPCを起動したままにする</value>
+    </data>
+    <data name="ShutdownWhenCompleted" xml:space="preserve">
+      <value>完了したらシャットダウン</value>
+    </data>
+    <data name="RunOnSystemStartup" xml:space="preserve">
+      <value>システム起動時に実行</value>
+    </data>
+    <data name="StartAppAsMinimized" xml:space="preserve">
+      <value>アプリを最小化して起動する</value>
+    </data>
+    <data name="RunAsAdministrator" xml:space="preserve">
+      <value>管理者として実行</value>
+    </data>
+    <data name="PreventDefault" xml:space="preserve">
+      <value>デフォルトを防ぐ</value>
+    </data>
+    <data name="Premium" xml:space="preserve">
+      <value>プレミアム</value>
+    </data>
+    <data name="Purchase" xml:space="preserve">
+      <value>購入</value>
+    </data>
+    <data name="PurchaseNow" xml:space="preserve">
+      <value>今すぐ購入</value>
+    </data>
+    <data name="Subscribe" xml:space="preserve">
+      <value>購読</value>
+    </data>
+    <data name="SubscribeNow" xml:space="preserve">
+      <value>今すぐ購読</value>
+    </data>
+    <data name="Buy" xml:space="preserve">
+      <value>購入</value>
+    </data>
+    <data name="BuyNow" xml:space="preserve">
+      <value>今すぐ購入</value>
+    </data>
+    <data name="RestorePurchase" xml:space="preserve">
+      <value>購入の復元</value>
+    </data>
+    <data name="GetIt" xml:space="preserve">
+      <value>それを得る</value>
+    </data>
+    <data name="HowToUse" xml:space="preserve">
+      <value>使い方</value>
+    </data>
+    <data name="Support" xml:space="preserve">
+      <value>サポート</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+      <value>設定</value>
+    </data>
+    <data name="About" xml:space="preserve">
+      <value>だいたい</value>
+    </data>
+    <data name="LicensingInformation" xml:space="preserve">
+      <value>ライセンス情報</value>
+    </data>
+    <data name="DiscoverMoreUsefulApps" xml:space="preserve">
+      <value>より便利なアプリを発見してください</value>
+    </data>
+    <data name="PrivacyPolicy" xml:space="preserve">
+      <value>プライバシーポリシー</value>
+    </data>
+    <data name="Info" xml:space="preserve">
+      <value>情報</value>
+    </data>
+    <data name="Share" xml:space="preserve">
+      <value>共有</value>
+    </data>
+    <data name="RateUs" xml:space="preserve">
+      <value>私たちを評価してください</value>
+    </data>
+    <data name="CancelSubscription" xml:space="preserve">
+      <value>サブスクリプションをキャンセルする</value>
+    </data>
+    <data name="MoreApps" xml:space="preserve">
+      <value>より多くのアプリケーション</value>
+    </data>
+    <data name="About_Credit" xml:space="preserve">
+      <value>Copyright ©2021- {0} {1}。全著作権所有。</value>
+    </data>
+    <data name="About_ShareValuableIdeas" xml:space="preserve">
+      <value>貴重なアイデアを共有します</value>
+    </data>
+    <data name="About_ShareValuableIdeasDescription" xml:space="preserve">
+      <value>フィードバックを残してください。そうすれば、実行します。</value>
+    </data>
+    <data name="About_DiscoverMoreApps" xml:space="preserve">
+      <value>より多くのアプリを発見してください</value>
+    </data>
+    <data name="About_DiscoverMoreAppsDescription" xml:space="preserve">
+      <value>Windows用のより便利なアプリを入手してください。</value>
+    </data>
+    <data name="About_ConnectWithUsOnTwitter" xml:space="preserve">
+      <value>Twitterで私たちとつながります</value>
+    </data>
+    <data name="About_ConnectWithUsOnTwitterDescription" xml:space="preserve">
+      <value>フィードバックを残し、新機能通知を受け取ります。</value>
+    </data>
+    <data name="About_OurWebsite" xml:space="preserve">
+      <value>私たちのウェブサイト</value>
+    </data>
+    <data name="About_OurWebsiteDescription" xml:space="preserve">
+      <value>学習、連絡、またはさらなるサポートが必要な場合は、当社の Web サイトにアクセスしてください。</value>
+    </data>
+    <data name="MoreApps_Title" xml:space="preserve">
+      <value>作成したアプリをダウンロード</value>
+    </data>
+    <data name="MoreApps_Description" xml:space="preserve">
+      <value>それらは定期的に更新されているので、必ず確認してください。</value>
+    </data>
+    <data name="MoreApps_AllApps" xml:space="preserve">
+      <value>すべてのアプリ</value>
+    </data>
+    <data name="Support_RequireAllInfo" xml:space="preserve">
+      <value>フォームに必要なすべての情報を提供してください。</value>
+    </data>
+    <data name="Support_InvalidEmailAddress" xml:space="preserve">
+      <value>メールアドレスが無効です。</value>
+    </data>
+    <data name="Support_SendFailure" xml:space="preserve">
+      <value>リクエストを送信しようとしているときにエラーが発生しました</value>
+    </data>
+    <data name="Support_SendFailureDescription" xml:space="preserve">
+      <value>後でもう一度やり直すか、{0}に直接メールを送信してください</value>
+    </data>
+    <data name="Support_SendSuccess" xml:space="preserve">
+      <value>レポートありがとうございます</value>
+    </data>
+    <data name="Support_SendSuccessDescription" xml:space="preserve">
+      <value>フィードバックを受け取ったら、できるだけ早く調査してご連絡いたします。</value>
+    </data>
+    <data name="Support_Description" xml:space="preserve">
+      <value>説明</value>
+    </data>
+    <data name="Support_HelpAndSupport" xml:space="preserve">
+      <value>ヘルプサポート</value>
+    </data>
+    <data name="Support_HelpAndSupportDescription" xml:space="preserve">
+      <value>以下のフォームを使用して、バグを連絡し、報告し、機能を要求できます。</value>
+    </data>
+    <data name="Support_OtherSupportMethod" xml:space="preserve">
+      <value>サポートを受ける他の方法をお探しですか? developer@iostream.co までメールでお問い合わせください。</value>
+    </data>
+    <data name="Support_SupportFor" xml:space="preserve">
+      <value>サポート：</value>
+    </data>
+    <data name="Support_YourEmail" xml:space="preserve">
+      <value>あなたのメール</value>
+    </data>
+    <data name="Support_DescriptionHint" xml:space="preserve">
+      <value>修正を提供する能力を高めるには、問題を徹底的に説明してください。</value>
+    </data>
+    <data name="Support_YourEmailHint" xml:space="preserve">
+      <value>これを使用して連絡を取ります</value>
+    </data>
+    <data name="Support_Send" xml:space="preserve">
+      <value>送信</value>
+    </data>
+    <data name="Settings_Description" xml:space="preserve">
+      <value>アプリケーションに表示する表示モードと言語を選択します。</value>
+    </data>
+    <data name="Settings_RestartToApplySettings" xml:space="preserve">
+      <value>テーマ/言語を変更するために再起動します。</value>
+    </data>
+    <data name="Settings_Theme" xml:space="preserve">
+      <value>テーマ</value>
+    </data>
+    <data name="Settings_Language" xml:space="preserve">
+      <value>言語</value>
+    </data>
+    <data name="Settings_ThemeUsingSystemSetting" xml:space="preserve">
+      <value>システム設定を使用します</value>
+    </data>
+    <data name="Settings_ThemeDark" xml:space="preserve">
+      <value>暗い</value>
+    </data>
+    <data name="Settings_ThemeLight" xml:space="preserve">
+      <value>ライト</value>
+    </data>
+    <data name="Settings_LanguageUsingSystemSetting" xml:space="preserve">
+      <value>システム設定を使用します</value>
+    </data>
+    <data name="Settings_LanguageEnUs" xml:space="preserve">
+      <value>English</value>
+    </data>
+    <data name="Settings_LanguageZhHant" xml:space="preserve">
+      <value>中文</value>
+    </data>
+    <data name="Settings_LanguageJaJp" xml:space="preserve">
+      <value>日本</value>
+    </data>
+    <data name="Settings_LanguageViVn" xml:space="preserve">
+      <value>Tiếng Việt</value>
+    </data>
+    <data name="MobileAPR_Title" xml:space="preserve">
+      <value>{0}のモバイル版</value>
+    </data>
+    <data name="MobileAPR_SubTitle" xml:space="preserve">
+      <value>{0}をモバイルにダウンロード</value>
+    </data>
+    <data name="MobileAPR_FreeSubTitle" xml:space="preserve">
+      <value>モバイル版{0}の無料ダウンロード</value>
+    </data>
+    <data name="RateToUnlock_Title" xml:space="preserve">
+      <value>フルバージョンを無料でロック解除する</value>
+    </data>
+    <data name="RateToUnlock_SubTitle" xml:space="preserve">
+      <value>今すぐ完全版のロックを解除するには、5 つ星の評価を付けて、何か興味深い内容を書いてください。
+
+ご協力ありがとうございました！</value>
+    </data>
+    <data name="RateToUnlock_Note" xml:space="preserve">
+      <value>注: このアプリを削除するまで、5 つ星を評価することで完全版を使用できます。 本キャンペーンは予告なく終了させていただく場合がございます。</value>
+    </data>
+    <data name="RateToUnlock_Rate5StartsToUnlock" xml:space="preserve">
+      <value>5 つ星を評価してロックを解除する</value>
+    </data>
+    <data name="FreeTrial" xml:space="preserve">
+      <value>無料トライアル</value>
+    </data>
+    <data name="InAppPurchases" xml:space="preserve">
+      <value>アプリ内購入</value>
+    </data>
+    <data name="Premium_PremiumFeatures" xml:space="preserve">
+      <value>プレミアム機能</value>
+    </data>
+    <data name="Premium_PurchasePremiumIntro" xml:space="preserve">
+      <value>{0} Premium に登録すると、限定機能を入手できます。</value>
+    </data>
+    <data name="Premium_Support" xml:space="preserve">
+      <value>購入または購入の復元で問題が発生した場合は、support@iostream.co に電子メールを送信してください。すぐにサポートが必要です。</value>
+    </data>
+    <data name="Premium_ActiveAllPremiumFeatures" xml:space="preserve">
+      <value>Active all premium features</value>
+    </data>
+    <data name="Premium_OneTimePayment" xml:space="preserve">
+      <value>One-time payment, no subscription</value>
+    </data>
+    <data name="Premium_OneTime" xml:space="preserve">
+      <value>1回限りの請求</value>
+    </data>
+    <data name="Premium_MonthlyBilling" xml:space="preserve">
+      <value>月額課金</value>
+    </data>
+    <data name="Premium_QuarterlyBilling" xml:space="preserve">
+      <value>四半期ごとの請求</value>
+    </data>
+    <data name="Premium_SemiAnnuallyBilling" xml:space="preserve">
+      <value>半年ごとの請求</value>
+    </data>
+    <data name="Premium_AnnuallyBilling" xml:space="preserve">
+      <value>年間請求</value>
+    </data>
+    <data name="Premium_BuyOnceUseForever" xml:space="preserve">
+      <value>一度購入すれば永久に使用可能</value>
+    </data>
+    <data name="Premium_LicenseExpired" xml:space="preserve">
+      <value>ライセンスの有効期限が切れています</value>
+    </data>
+    <data name="Premium_RestorePurchase" xml:space="preserve">
+      <value>購入商品を復元する</value>
+    </data>
+    <data name="Premium_HowToCancelSubscription" xml:space="preserve">
+      <value>定期購入のキャンセル方法</value>
+    </data>
+    <data name="Premium_6Months" xml:space="preserve">
+      <value>6ヵ月</value>
+    </data>
+    <data name="Premium_1Month" xml:space="preserve">
+      <value>1ヶ月</value>
+    </data>
+    <data name="Social_FollowUsOn" xml:space="preserve">
+      <value>{0} でフォローしてください</value>
+    </data>
+    <data name="Social_FollowUsOnDescription" xml:space="preserve">
+      <value>このアプリに関する情報を更新したり、特別オファーを入手したり、機能をリクエストしたり、当社についてさらに詳しく知ることができます。</value>
+    </data>
+    <data name="Features_ClearMissingItems" xml:space="preserve">
+      <value>すべての設定をデフォルトにリセットしますか？</value>
+    </data>
+    <data name="Features_ApplyThisSettingToAllItems" xml:space="preserve">
+      <value>すべてのプロセスを停止しますか？</value>
+    </data>
+    <data name="Features_StopAllProcesses" xml:space="preserve">
+      <value>詳細設定をデフォルトにリセットしますか？</value>
+    </data>
+    <data name="Features_ResetAllSettingsToDefault" xml:space="preserve">
+      <value>すべての設定をデフォルトにリセットしますか？</value>
+    </data>
+    <data name="Features_ResetAdvancedSettingsToDefault" xml:space="preserve">
+      <value>詳細設定をデフォルトにリセットしますか？</value>
+    </data>
+    <data name="Features_RemoveAllMetadata" xml:space="preserve">
+      <value>すべてのメタデータを削除</value>
+    </data>
+    <data name="Features_Crop" xml:space="preserve">
+      <value>作物</value>
+    </data>
+    <data name="Features_Dimension" xml:space="preserve">
+      <value>寸法</value>
+    </data>
+    <data name="Features_Extension" xml:space="preserve">
+      <value>拡大</value>
+    </data>
+    <data name="Features_FileInfo" xml:space="preserve">
+      <value>ファイル情報</value>
+    </data>
+    <data name="Features_FileSize" xml:space="preserve">
+      <value>ファイルサイズ</value>
+    </data>
+    <data name="Features_Flip" xml:space="preserve">
+      <value>フリップ</value>
+    </data>
+    <data name="Features_IcoSize" xml:space="preserve">
+      <value>ICOサイズ</value>
+    </data>
+    <data name="Features_Input" xml:space="preserve">
+      <value>入力</value>
+    </data>
+    <data name="Features_InputFileInfo" xml:space="preserve">
+      <value>入力ファイル情報</value>
+    </data>
+    <data name="Features_MimeType" xml:space="preserve">
+      <value>MIMEタイプ</value>
+    </data>
+    <data name="Features_Name" xml:space="preserve">
+      <value>名前</value>
+    </data>
+    <data name="Features_OrDragAndDrop" xml:space="preserve">
+      <value>またはドラッグアンドドロップ</value>
+    </data>
+    <data name="Features_Output" xml:space="preserve">
+      <value>出力</value>
+    </data>
+    <data name="Features_OutputFormat" xml:space="preserve">
+      <value>出力フォーマット</value>
+    </data>
+    <data name="Features_Rotate" xml:space="preserve">
+      <value>回転します</value>
+    </data>
+    <data name="Features_Size" xml:space="preserve">
+      <value>サイズ</value>
+    </data>
+    <data name="Features_TotalFrames" xml:space="preserve">
+      <value>合計フレーム</value>
+    </data>
+    <data name="Features_BrightnessContrast" xml:space="preserve">
+      <value>輝度/対比</value>
+    </data>
+    <data name="Features_Brightness" xml:space="preserve">
+      <value>輝度</value>
+    </data>
+    <data name="Features_Contrast" xml:space="preserve">
+      <value>対比</value>
+    </data>
+    <data name="StatusReady" xml:space="preserve">
+      <value>準備</value>
+    </data>
+    <data name="StatusLoading" xml:space="preserve">
+      <value>読み込み</value>
+    </data>
+    <data name="StatusLoaded" xml:space="preserve">
+      <value>ロード</value>
+    </data>
+    <data name="StatusLoadFailed" xml:space="preserve">
+      <value>負荷が失敗</value>
+    </data>
+    <data name="StatusProcessingOne" xml:space="preserve">
+      <value>処理</value>
+    </data>
+    <data name="StatusProcessingAll" xml:space="preserve">
+      <value>処理</value>
+    </data>
+    <data name="StatusProcessed" xml:space="preserve">
+      <value>処理</value>
+    </data>
+    <data name="StatusProcessFailed" xml:space="preserve">
+      <value>プロセスが失敗</value>
+    </data>
+    <data name="StatusProcessPausing" xml:space="preserve">
+      <value>一時停止</value>
+    </data>
+    <data name="StatusProcessPaused" xml:space="preserve">
+      <value>一時停止</value>
+    </data>
+    <data name="StatusProcessStopping" xml:space="preserve">
+      <value>停止</value>
+    </data>
+    <data name="StatusProcessStopped" xml:space="preserve">
+      <value>停止</value>
+    </data>
+    <data name="Item_StatusReady" xml:space="preserve">
+      <value>準備</value>
+    </data>
+    <data name="Item_StatusProcessInQueue" xml:space="preserve">
+      <value>順番待ち</value>
+    </data>
+    <data name="Item_StatusStart" xml:space="preserve">
+      <value>始める</value>
+    </data>
+    <data name="Item_StatusProcessing" xml:space="preserve">
+      <value>処理</value>
+    </data>
+    <data name="Item_StatusProcessed" xml:space="preserve">
+      <value>処理</value>
+    </data>
+    <data name="Item_StatusProcessFailed" xml:space="preserve">
+      <value>失敗した</value>
+    </data>
+    <data name="Item_StatusProcessPaused" xml:space="preserve">
+      <value>一時停止</value>
+    </data>
+    <data name="Item_StatusProcessStopped" xml:space="preserve">
+      <value>停止</value>
+    </data>
+    <data name="Features_RemoveItemFromList" xml:space="preserve">
+      <value>リストから項目を削除</value>
+    </data>
+    <data name="Features_Width" xml:space="preserve">
+      <value>幅</value>
+    </data>
+    <data name="Features_Height" xml:space="preserve">
+      <value>身長</value>
+    </data>
+    <data name="Features_SetNewFileSettings" xml:space="preserve">
+      <value>新しいファイルの設定を設定</value>
+    </data>
+    <data name="Features_RawImageSettings" xml:space="preserve">
+      <value>生の画像設定</value>
+    </data>
+    <data name="Features_DisableAutoBrightness" xml:space="preserve">
+      <value>自動輝度を無効に</value>
+    </data>
+    <data name="Features_WhiteBalance" xml:space="preserve">
+      <value>ホワイトバランス</value>
+    </data>
+    <data name="Features_TrialLimitReachedTitle" xml:space="preserve">
+      <value>制限に達しました - {0} 制限: {1}。</value>
+    </data>
+    <data name="Features_TrialLimitReachedSubTitle" xml:space="preserve">
+      <value>すべての機能を使用するには、プレミアム バージョンを購入するか、この限定された無料バージョンを引き続き使用できます。</value>
+    </data>
+    <data name="Features_TrialLimitStickyMessage" xml:space="preserve">
+      <value>トライアルは {0} ファイルに制限されています。</value>
+    </data>
+    <data name="Features_AddVideoOrMusic" xml:space="preserve">
+      <value>ビデオや音楽を追加</value>
+    </data>
+    <data name="Features_RecentTitle" xml:space="preserve">
+      <value>最近のビデオと音楽</value>
+    </data>
+    <data name="Features_RecentSubtitle" xml:space="preserve">
+      <value>最近見たメディアがここに表示されます。</value>
+    </data>
+    <data name="Features_OpenFile" xml:space="preserve">
+      <value>ファイルを開く</value>
+    </data>
+    <data name="Features_SelectAll" xml:space="preserve">
+      <value>すべて選択</value>
+    </data>
+    <data name="Features_FilesOnly" xml:space="preserve">
+      <value>ファイルのみ</value>
+    </data>
+    <data name="Features_PlayAll" xml:space="preserve">
+      <value>全部やる</value>
+    </data>
+    <data name="Features_LastPlayed" xml:space="preserve">
+      <value>最後にプレイした</value>
+    </data>
+    <data name="Features_DateModified" xml:space="preserve">
+      <value>日付が変更されました</value>
+    </data>
+    <data name="Features_SortLastPlayed" xml:space="preserve">
+      <value>最後にプレイした</value>
+    </data>
+    <data name="Features_SortLastModified" xml:space="preserve">
+      <value>日付が変更されました</value>
+    </data>
+    <data name="Features_SortA2Z" xml:space="preserve">
+      <value>A - Z</value>
+    </data>
+    <data name="Features_OpenFolder" xml:space="preserve">
+      <value>開いたフォルダ</value>
+    </data>
+    <data name="Features_Preference" xml:space="preserve">
+      <value>プライバシー設定</value>
+    </data>
+    <data name="Features_Password" xml:space="preserve">
+      <value>パスワード</value>
+    </data>
+    <data name="Features_EnterPassword" xml:space="preserve">
+      <value>パスワードを入力してください</value>
+    </data>
+    <data name="Features_EnterPasswordSubtitle" xml:space="preserve">
+      <value>パスワードを入力してアプリケーションを開きます。</value>
+    </data>
+    <data name="Features_EnterPreviousVersionPassword" xml:space="preserve">
+      <value>File Locker X のパスワードを入力してください</value>
+    </data>
+    <data name="Features_EnterPreviousVersionPasswordSubtitle" xml:space="preserve">
+      <value>File Locker X のパスワードを入力して開きます</value>
+    </data>
+    <data name="Features_CreatePassword" xml:space="preserve">
+      <value>パスワードの作成</value>
+    </data>
+    <data name="Features_CreatePasswordSubtitle" xml:space="preserve">
+      <value>このパスワードは次回アプリケーションを開くときに使用されます。</value>
+    </data>
+    <data name="Features_Convert2MP3" xml:space="preserve">
+      <value>MP3に変換</value>
+    </data>
+    <data name="Features_Convert2MP4" xml:space="preserve">
+      <value>MP4に変換</value>
+    </data>
+    <data name="Features_PreferenceTitle" xml:space="preserve">
+      <value>環境設定</value>
+    </data>
+    <data name="Features_PreferenceSubtitle" xml:space="preserve">
+      <value>この構成は、プライベートで機密性の高いメディアが公共の環境で表示されるのを制限することのみを目的としており、これらの機能は高レベルのメディア セキュリティをサポートしません。</value>
+    </data>
+    <data name="Features_ChangePasswordTitle" xml:space="preserve">
+      <value>パスワードを変更する</value>
+    </data>
+    <data name="Features_ChangePasswordSubtitle" xml:space="preserve">
+      <value>このアプリケーションを開くにはパスワードの入力が必要です。</value>
+    </data>
+    <data name="Features_Artists" xml:space="preserve">
+      <value>アーティスト</value>
+    </data>
+    <data name="Features_Duration" xml:space="preserve">
+      <value>間隔</value>
+    </data>
+    <data name="Features_Genre" xml:space="preserve">
+      <value>ジャンル</value>
+    </data>
+    <data name="Features_Resolution" xml:space="preserve">
+      <value>解決</value>
+    </data>
+    <data name="Features_FrameRate" xml:space="preserve">
+      <value>フレームレート</value>
+    </data>
+    <data name="Features_AudioChannels" xml:space="preserve">
+      <value>オーディオチャンネル</value>
+    </data>
+    <data name="Features_FileType" xml:space="preserve">
+      <value>ファイルの種類</value>
+    </data>
+    <data name="Features_Album" xml:space="preserve">
+      <value>アルバム</value>
+    </data>
+    <data name="Features_BitRate" xml:space="preserve">
+      <value>ビットレート</value>
+    </data>
+    <data name="Features_AvailableInTheFuture" xml:space="preserve">
+      <value>この機能は将来的に利用可能になる予定。</value>
+    </data>
+    <data name="Features_WrongPasswordError" xml:space="preserve">
+      <value>間違ったパスワード。</value>
+    </data>
+    <data name="Features_EmptyPasswordError" xml:space="preserve">
+      <value>パスワードを空にすることはできません。</value>
+    </data>
+    <data name="Features_PasswordsNotMatchedError" xml:space="preserve">
+      <value>パスワードが一致しません。</value>
+    </data>
+    <data name="Features_ApplyPreferenceTitle" xml:space="preserve">
+      <value>設定を保存しますか?</value>
+    </data>
+    <data name="Features_ApplyPreferenceSubtitle" xml:space="preserve">
+      <value>これは、一度申請すると現在のメディア アイテムに適用されます。</value>
+    </data>
+    <data name="Features_ConfigureLocationTitle" xml:space="preserve">
+      <value>ストレージの場所</value>
+    </data>
+    <data name="Features_ConfigureLocationSubtitle" xml:space="preserve">
+      <value>すべてのファイルはここに保存されます。</value>
+    </data>
+    <data name="Features_ConfirmResetDefault" xml:space="preserve">
+      <value>デフォルトにリセットしますか?</value>
+    </data>
+    <data name="Features_ResetDefault" xml:space="preserve">
+      <value>リセット</value>
+    </data>
+    <data name="Features_RemovableStorage" xml:space="preserve">
+      <value>取り外し可能なストレージ</value>
+    </data>
+    <data name="Features_PermanentlyDelete" xml:space="preserve">
+      <value>完全に削除</value>
+    </data>
+    <data name="Features_ConfirmPermanentlyDelete" xml:space="preserve">
+      <value>永久に削除しますか?</value>
+    </data>
+    <data name="Features_CurrentPassword" xml:space="preserve">
+      <value>現在のパスワード</value>
+    </data>
+    <data name="Features_NewPassword" xml:space="preserve">
+      <value>新しいパスワード</value>
+    </data>
+    <data name="Features_ConfirmPassword" xml:space="preserve">
+      <value>確認のためにパスワードを再入力します</value>
+    </data>
+    <data name="Features_OverwriteExistingOutputFilesOrFolder" xml:space="preserve">
+      <value>既存の出力ファイルまたはフォルダーを上書きする</value>
+    </data>
+    <data name="Features_ProcessCompletedSuccessfully" xml:space="preserve">
+      <value>処理が正常に完了しました</value>
+    </data>
+    <data name="Features_AllInfoWillBeUpdated" xml:space="preserve">
+      <value>この項目のすべての情報が更新されます。</value>
+    </data>
+    <data name="Features_RecoverSelectedItem" xml:space="preserve">
+      <value>選択したアイテムを回復する</value>
+    </data>
+    <data name="Features_RecoverAll" xml:space="preserve">
+      <value>すべて回復する</value>
+    </data>
+    <data name="Features_WaitingForImport" xml:space="preserve">
+      <value>インポートを待っています</value>
+    </data>
+    <data name="Features_Blur" xml:space="preserve">
+      <value>ぼかし</value>
+    </data>
+    <data name="Features_Unblur" xml:space="preserve">
+      <value>ぼかしを解除する</value>
+    </data>
+    <data name="Features_ExportItemToDestination" xml:space="preserve">
+      <value>現在のアイテムをこのアプリからエクスポートします。</value>
+    </data>
+    <data name="Features_ExportUnlockedCopyItemToDestination" xml:space="preserve">
+      <value>アイテムのロック解除されたコピーをエクスポートします。</value>
+    </data>
+    <data name="Features_ExportLockedCopyItemToDestination" xml:space="preserve">
+      <value>アイテムのロックされたコピーをエクスポートします。</value>
+    </data>
+    <data name="Features_UnlockAll" xml:space="preserve">
+      <value>すべてのロックを解除</value>
+    </data>
+    <data name="Features_OutputFolder" xml:space="preserve">
+      <value>出力フォルダ</value>
+    </data>
+    <data name="Features_Import" xml:space="preserve">
+      <value>輸入</value>
+    </data>
+    <data name="Features_ImportFiles" xml:space="preserve">
+      <value>ファイルをインポートする</value>
+    </data>
+    <data name="Features_ImportFolder" xml:space="preserve">
+      <value>フォルダーをインポートする</value>
+    </data>
+    <data name="Features_ExportSelected" xml:space="preserve">
+      <value>選択したエクスポート</value>
+    </data>
+    <data name="Features_MoreActions" xml:space="preserve">
+      <value>さらにアクション…</value>
+    </data>
+    <data name="Features_BlurSelected" xml:space="preserve">
+      <value>ぼかしが選択されました</value>
+    </data>
+    <data name="Features_UnblurSelected" xml:space="preserve">
+      <value>ぼかし解除が選択されています</value>
+    </data>
+    <data name="Features_PermanentlyDeleteSelected" xml:space="preserve">
+      <value>選択したものを完全に削除します</value>
+    </data>
+    <data name="Features_RemoveCorrupted" xml:space="preserve">
+      <value>破損したものをすべて削除します</value>
+    </data>
+    <data name="Premium_UnlimitedSubtitle1" xml:space="preserve">
+      <value>無制限のファイルを管理</value>
+    </data>
+    <data name="Premium_UnlimitedSubtitle2" xml:space="preserve">
+      <value>{0} 個のファイル、フォルダーの制限を削除します。</value>
+    </data>
+    <data name="Features_InitPasswordMessage" xml:space="preserve">
+      <value>あなたのプライバシーを確​​保するために、アプリはパスワードを含むあなたの情報をいかなるサーバーにも保存しません。したがって、このパスワードは自分で管理する必要があります。スワードを忘れると、データを復号化できなくなります。</value>
+    </data>
+    <data name="Features_DataRecoveryInfo" xml:space="preserve">
+      <value>データ復旧について詳しくはこちら</value>
+    </data>
+    <data name="Features_ResetApplication" xml:space="preserve">
+      <value>アプリケーションをリセットする</value>
+    </data>
+    <data name="Features_ResetMessage" xml:space="preserve">
+      <value>アプリケーションは完全に更新され、古いパスワードとすべてのデータが削除されます。 サポートが必要な場合は、developer@iostream.co までメールでお問い合わせください。</value>
+    </data>
+    <data name="Features_SelectEmptyFolderMessage" xml:space="preserve">
+      <value>空のフォルダーを選択してください。</value>
+    </data>
+    <data name="Features_TerminateAllDownloadSessionsTitle" xml:space="preserve">
+      <value>すべてのダウンロードセッションが終了します。</value>
+    </data>
+    <data name="Features_CancelDownloadTitle" xml:space="preserve">
+      <value>ダウンロードをキャンセル</value>
+    </data>
+    <data name="Features_DownloadThisPlaylistTitle" xml:space="preserve">
+      <value>このプレイリストをダウンロードしますか？</value>
+    </data>
+    <data name="Features_DownloadThisListTitle" xml:space="preserve">
+      <value>このリストをダウンロードしますか？</value>
+    </data>
+  </root>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<iocore:IODialog
+    xmlns:iocore="using:IOCore"
+    x:Class="IOApp.Dialogs.AccessDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:coreLibs="using:IOCore.Libs"
+    xmlns:coreControls="using:IOCore.Controls"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+>
+    <iocore:IODialog.Resources>
+        <coreLibs:IsNullOrEmptyStringConverter x:Key="IsNullOrEmptyStringConverter"/>
+        <coreLibs:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </iocore:IODialog.Resources>
+    
+    <Grid RowDefinitions="Auto,Auto,Auto" Width="400" Padding="15">
+
+        <StackPanel MinHeight="260" Visibility="{Binding IsInited, Converter={StaticResource InverseBoolConverter}}">
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{coreLibs:SRE K=Features_CreatePassword}"/>
+            <TextBlock FontSize="14" TextWrapping="WrapWholeWords" Text="{coreLibs:SRE K=Features_CreatePasswordSubtitle}"/>
+            <TextBlock FontSize="14" TextWrapping="WrapWholeWords" Text="{coreLibs:SRE K=Features_InitPasswordMessage}" Foreground="{ThemeResource Foreground2}"/>
+
+            <PasswordBox Name="InitialPasswordBox" Margin="0,10,0,0" PlaceholderText="{coreLibs:SRE K=Features_Password}"/>
+            <PasswordBox Name="InitialConfirmedPasswordBox" Margin="0,10,0,0" PlaceholderText="{coreLibs:SRE K=Features_ConfirmPassword}">
+                <PasswordBox.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Enter" Invoked="KeyboardAccelerator_Invoked"/>
+                </PasswordBox.KeyboardAccelerators>
+            </PasswordBox>
+
+            <TextBlock Text="{Binding ErrorText}" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <StackPanel MinHeight="140" Visibility="{Binding IsInited}">
+            <TextBlock FontSize="20" FontWeight="Bold" Text="{coreLibs:SRE K=Features_EnterPassword}"/>
+            <TextBlock FontSize="14" TextWrapping="WrapWholeWords" Text="{coreLibs:SRE K=Features_EnterPasswordSubtitle}"/>
+
+            <PasswordBox Name="PasswordBox" Margin="0,10,0,0" PlaceholderText="{coreLibs:SRE K=Features_Password}" KeyboardAcceleratorPlacementMode="Hidden">
+                <PasswordBox.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Enter" Invoked="KeyboardAccelerator_Invoked"/>
+                </PasswordBox.KeyboardAccelerators>
+            </PasswordBox>
+
+            <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                <TextBlock Text="{Binding ErrorText}" VerticalAlignment="Center"/>
+                <HyperlinkButton Grid.Column="1" Content="{coreLibs:SRE K=Features_ResetApplication}" Tag="ResetApplication" Click="ActionButton_Click"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Spacing="10">
+            <coreControls:ThemeIconTextButton x:Name="ApplyButton" Tag="Apply" Click="ActionButton_Click"/>
+            <HyperlinkButton Content="{coreLibs:SRE K=Features_DataRecoveryInfo}" HorizontalAlignment="Center" Tag="LearnMore" Click="ActionButton_Click"/>
+        </StackPanel>
+    </Grid>
+</iocore:IODialog>

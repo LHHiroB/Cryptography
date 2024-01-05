@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<iocore:IOUserControl
+    xmlns:iocore="using:IOCore"
+    x:Class="IOApp.Features.FileItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:coreLibs="using:IOCore.Libs"
+    xmlns:coreControls="using:IOCore.Controls"
+    mc:Ignorable="d"
+>
+    <iocore:IOUserControl.Resources>
+        <coreLibs:FilePathConverter x:Key="FilePathConverter"/>
+        <coreLibs:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <coreLibs:ValueConverterGroup x:Key="EnumComparisonToBoolInverterConverter">
+            <coreLibs:EnumComparisonToBoolConverter/>
+            <coreLibs:InverseBoolConverter/>
+        </coreLibs:ValueConverterGroup>
+        <coreLibs:EnumComparisonToBoolConverter x:Key="EnumComparisonToBoolConverter"/>
+        <coreLibs:FileSizeToSizeStringConverter x:Key="FileSizeToSizeStringConverter"/>
+
+        <MenuFlyout x:Key="CorruptedItemMenuFlyout" Placement="Bottom">
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Remove}" Tag="Remove" Click="MenuItemButton_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon Glyph="&#xf78a;"/>
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+        </MenuFlyout>
+
+        <MenuFlyout x:Key="ItemMenuFlyout" Placement="Bottom">
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Open}" Tag="Play" Click="MenuItemButton_Click"
+                            Visibility="{Binding FileType, ConverterParameter=Video|Audio|Image, Converter={StaticResource EnumComparisonToBoolConverter}}">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon Glyph="&#xE768;"/>
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Properties}" Tag="Properties" Click="MenuItemButton_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon Glyph="&#xE946;"/>
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Features_PermanentlyDelete}" Tag="PermanentlyDelete" Click="MenuItemButton_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon Glyph="&#xE74D;"/>
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+        </MenuFlyout>
+    </iocore:IOUserControl.Resources>
+    <Grid RowDefinitions="*" ColumnDefinitions="*" Width="256" MinHeight="250" Background="{ThemeResource IconItemBackgroundGroup}">
+        <Grid RowDefinitions="Auto,*" Visibility="{Binding IsCorrupted, Converter={StaticResource InverseBoolConverter}}">
+            <Grid Width="256" Height="144">
+                <FontIcon Glyph="&#xE8B7;" FontSize="32" Visibility="{Binding FileType, ConverterParameter=Directory, Converter={StaticResource EnumComparisonToBoolConverter}}"/>
+                <FontIcon Glyph="&#xE8A5;" FontSize="32" Visibility="{Binding FileType, ConverterParameter=Document|Unknown, Converter={StaticResource EnumComparisonToBoolConverter}}"/>
+                <Image Source="{Binding Thumbnail}" Width="256" Height="144" Stretch="Uniform" Visibility="{Binding FileType, ConverterParameter=Video|Image, Converter={StaticResource EnumComparisonToBoolConverter}}"/>
+                <FontIcon Glyph="&#xEC4F;" FontSize="32" Visibility="{Binding FileType, ConverterParameter=Audio, Converter={StaticResource EnumComparisonToBoolConverter}}"/>
+            </Grid>
+
+            <Grid Grid.Row="1" RowDefinitions="Auto,*,Auto" Padding="15">
+                <TextBlock Text="{Binding OriginalFileOrFolderPath, ConverterParameter=fileName, Converter={StaticResource FilePathConverter}}"
+                           Visibility="{Binding Privacy, ConverterParameter=None, Converter={StaticResource EnumComparisonToBoolConverter}}"
+                           FontWeight="SemiBold" FontSize="14" TextWrapping="WrapWholeWords" MaxLines="2"/>
+                <StackPanel Grid.Row="2" Padding="5">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <FontIcon Glyph="&#xE823;" FontSize="12" Foreground="{ThemeResource Foreground2}"/>
+                        <TextBlock Text="{Binding EncryptedCreationTimeText}" FontSize="12" Foreground="{ThemeResource Foreground2}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding EncryptedSize, Converter={StaticResource FileSizeToSizeStringConverter}}"
+                               Foreground="{ThemeResource Foreground2}" FontSize="12"
+                               Visibility="{Binding FileType, ConverterParameter=Directory, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="5" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <coreControls:IconButton Icon="&#xE768;" Size="SM" IsSquare="True" Tag="Play" Tapped="MenuItemButton_Tapped"
+                                         IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"
+                                         Visibility="{Binding FileType, ConverterParameter=Video|Audio|Image, Converter={StaticResource EnumComparisonToBoolConverter}}"/>
+                <coreControls:IconButton Icon="&#xe712;" Size="SM" IsSquare="True" Flyout="{StaticResource ItemMenuFlyout}"
+                                         IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid RowDefinitions="Auto,*" Visibility="{Binding IsCorrupted}">
+            <Grid Width="256" Height="144">
+                <FontIcon Glyph="&#xE814;" FontSize="64" Foreground="{ThemeResource Foreground2}"/>
+            </Grid>
+
+            <Grid Grid.Row="1" RowDefinitions="Auto,*,Auto" Padding="15">
+                <StackPanel Grid.Row="2" Padding="5">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <FontIcon Glyph="&#xE823;" FontSize="12" Foreground="{ThemeResource Foreground2}"/>
+                        <TextBlock Text="{Binding EncryptedCreationTimeText}" FontSize="12" Foreground="{ThemeResource Foreground2}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <TextBlock Text="{Binding EncryptedSize, Converter={StaticResource FileSizeToSizeStringConverter}}"
+                               Foreground="{ThemeResource Foreground2}" FontSize="12"
+                               Visibility="{Binding FileType, ConverterParameter=Directory, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+                <coreControls:IconButton Icon="&#xe712;" Size="SM" IsSquare="True" Flyout="{StaticResource CorruptedItemMenuFlyout}"
+                                         IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</iocore:IOUserControl>

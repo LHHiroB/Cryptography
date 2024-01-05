@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<iocore:IOPage
+    xmlns:iocore="using:IOCore"
+    x:Class="IOApp.Pages.MediaPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fl="using:FlyleafLib.Controls.WinUI"
+    xmlns:coreLibs="using:IOCore.Libs"
+    xmlns:coreControls="using:IOCore.Controls"
+    xmlns:features="using:IOApp.Features"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+    Loaded="Page_Loaded"
+    KeyboardAcceleratorPlacementMode="Hidden"
+>
+    <iocore:IOPage.Resources>
+        <coreLibs:EnumComparisonToBoolConverter x:Key="EnumComparisonToBoolConverter"/>
+        <coreLibs:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <coreLibs:TicksToTimeConverter x:Key="TicksToTimeConverter"/>
+        <coreLibs:TicksToSecondsConverter x:Key="TicksToSecondsConverter"/>
+
+        <Flyout x:Name="VolumeFlyout">
+            <Grid Width="200" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                <features:PlaybackButton x:Name="MuteButton" Icon="{Binding Player.VolumeIcon}" Click="PlaybackButton_Click"/>
+                <Slider Grid.Column="1" VerticalAlignment="Center"
+                        Minimum="0" Maximum="{Binding Player.Config.Player.VolumeMax}" Value="{Binding Player.Audio.Volume, Mode=TwoWay}"
+                        ValueChanged="VolumeSlider_ValueChanged"/>
+            </Grid>
+            <Flyout.FlyoutPresenterStyle>
+                <Style TargetType="FlyoutPresenter">
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="Background" Value="{ThemeResource FlyoutBackground}"/>
+                </Style>
+            </Flyout.FlyoutPresenterStyle>
+        </Flyout>
+
+        <Style x:Key="PlaybackToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Width" Value="36"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </iocore:IOPage.Resources>
+
+    <iocore:IOPage.KeyboardAccelerators>
+        <KeyboardAccelerator Key="Escape" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="F11" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="Up" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="Down" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="Left" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="Right" Invoked="KeyboardAccelerator_Invoked"/>
+        <KeyboardAccelerator Key="Space" Invoked="KeyboardAccelerator_Invoked"/>
+    </iocore:IOPage.KeyboardAccelerators>
+
+    <!--MAIN_LAYOUT-->
+    <features:AppGrid Grid.Row="1" x:Name="PlayerView" Background="Transparent" SizeChanged="PlayerView_SizeChanged" PointerMoved="PlayerView_PointerMoved">
+        <Grid Visibility="{Binding IsPlayable}">
+            <Grid Name="PlayerViewport" RowDefinitions="*" DoubleTapped="PlayerViewport_DoubleTapped" Visibility="{Binding Player.IsVideo}">
+                <fl:FlyleafHost Player="{Binding Player}" KeyBindings="False"/>
+            </Grid>
+            <FontIcon Glyph="&#xEC4F;" FontSize="128" Visibility="{Binding Player.IsVideo, Converter={StaticResource InverseBoolConverter}}"/>
+        </Grid>
+
+        <Border Name="PlayerMaskViewbox" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Visibility="{Binding IsPlayable, Converter={StaticResource InverseBoolConverter}}"/>
+
+        <Grid Name="PlaybackHud">
+            <StackPanel Orientation="Horizontal" Padding="10,32,0,10" VerticalAlignment="Top" Background="#77000000">
+                <features:PlaybackButton Icon="&#xE72B;" Click="BackToManagerButton_Click"/>
+                <!--<features:PlaylistControl x:Name="PlaylistControl"/>-->
+                <TextBlock Text="{Binding Player.Playlist.Selected.Title}" Foreground="#fff" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom">
+                <StackPanel Background="#77000000" Padding="10,0,10,10">
+                    <Grid ColumnDefinitions="70,*,70">
+                        <TextBlock Text="{Binding Player.CurTime, Converter={StaticResource TicksToTimeConverter}}" Foreground="#fff" VerticalAlignment="Center"/>
+                        <Slider Grid.Column="1" IsThumbToolTipEnabled="False" VerticalAlignment="Center" Visibility="{Binding IsPlayable}"
+                                Maximum="{Binding Player.Duration, Converter={StaticResource TicksToSecondsConverter}}"
+                                Value="{Binding Player.CurTime, Mode=TwoWay, Converter={StaticResource TicksToSecondsConverter}}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Player.Duration, Converter={StaticResource TicksToTimeConverter}}" Foreground="#fff" VerticalAlignment="Center" HorizontalTextAlignment="Right"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" ColumnDefinitions="*,*,*">
+                        <StackPanel Orientation="Horizontal"/>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <features:PlaybackButton x:Name="BackwardButton" Icon="&#xE97A;" Click="PlaybackButton_Click" IsEnabled="{Binding Player.CanPlay}"/>
+                            <features:PlaybackButton x:Name="PlayButton" Icon="&#xE769;" Click="PlaybackButton_Click" IsEnabled="{Binding Player.CanPlay}"
+                                                     Visibility="{Binding Player.IsPlaying}"/>
+                            <features:PlaybackButton x:Name="PauseButton" Icon="&#xE768;" Click="PlaybackButton_Click" IsEnabled="{Binding Player.CanPlay}"
+                                                     Visibility="{Binding Player.IsPlaying, Converter={StaticResource InverseBoolConverter}}"/>
+                            <features:PlaybackButton x:Name="ForwardButton" Icon="&#xEE35;" Click="PlaybackButton_Click" IsEnabled="{Binding Player.CanPlay}"/>
+                        </StackPanel>
+
+                        <Grid Grid.Column="2" RowDefinitions="*" HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal">
+                                <features:PlaybackButton x:Name="VolumeButton" Icon="{Binding Player.VolumeIcon}" Flyout="{StaticResource VolumeFlyout}" IsEnabled="{Binding Player.CanPlay}"/>
+
+                                <ToggleButton Name="FullScreenToggleButton" Style="{StaticResource PlaybackToggleButtonStyle}" Click="PlayerControlToggleButton_Click"
+                                              IsChecked="{Binding IsFullScreen, Mode=TwoWay}">
+                                    <StackPanel>
+                                        <FontIcon Glyph="&#xE73F;" Foreground="#fff" FontSize="18" Visibility="{Binding IsFullScreen}"/>
+                                        <FontIcon Glyph="&#xE740;" Foreground="#fff" FontSize="18" Visibility="{Binding IsFullScreen, Converter={StaticResource InverseBoolConverter}}"/>
+                                    </StackPanel>
+                                </ToggleButton>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </features:AppGrid>
+</iocore:IOPage>

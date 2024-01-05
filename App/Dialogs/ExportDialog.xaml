@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<iocore:IODialog
+    xmlns:iocore="using:IOCore"
+    x:Class="IOApp.Dialogs.ExportDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dialogs="using:IOApp.Dialogs"
+    xmlns:coreLibs="using:IOCore.Libs"
+    xmlns:coreControls="using:IOCore.Controls"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+>
+    <iocore:IODialog.Resources>
+        <coreLibs:EnumComparisonToBoolConverter x:Key="EnumComparisonToBoolConverter"/>
+        <coreLibs:ValueConverterGroup x:Key="EnumComparisonToBoolInverterConverter">
+            <coreLibs:EnumComparisonToBoolConverter/>
+            <coreLibs:InverseBoolConverter/>
+        </coreLibs:ValueConverterGroup>
+        <dialogs:ItemToOpacityConverter x:Key="ItemToOpacityConverter"/>
+
+        <Flyout x:Name="ItemInfoFlyout">
+            <StackPanel Width="320" Spacing="5">
+                <TextBlock Text="{coreLibs:SRE K=Features_FileInfo}" FontSize="12" FontWeight="Bold"/>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="90,*">
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontSize="12" Text="{coreLibs:SRE K=Name}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" FontSize="12" Text="{Binding OriginalFileOrFolderName}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" FontSize="12" Text="{coreLibs:SRE K=Location}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12" Text="{Binding OriginalFolderPath}"/>
+                </Grid>
+            </StackPanel>
+        </Flyout>
+    </iocore:IODialog.Resources>
+    
+    <Grid RowDefinitions="Auto,*" Width="800" Height="640">
+        <StackPanel Orientation="Horizontal" Spacing="10" Padding="10">
+            <StackPanel MinWidth="70">
+                <TextBlock FontSize="9" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{ThemeResource Foreground2}" Text="{coreLibs:SRE K=Last}"/>
+                <TextBlock FontSize="13" HorizontalAlignment="Center" Text="{Binding LastRun}"/>
+            </StackPanel>
+            <StackPanel MinWidth="70">
+                <TextBlock FontSize="9" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{ThemeResource Foreground2}" Text="{coreLibs:SRE K=Time}"/>
+                <TextBlock FontSize="13" HorizontalAlignment="Center" Text="{Binding TimeRun}"/>
+            </StackPanel>
+            <StackPanel MinWidth="70">
+                <TextBlock FontSize="9" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{ThemeResource Foreground2}" Text="{coreLibs:SRE K=Files}"/>
+                <TextBlock FontSize="13" HorizontalAlignment="Center" Text="{Binding FileCount}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <!--FILES-->
+            <Grid>
+                <ListView Name="FileListView" ItemsSource="{Binding FileItems}" SelectionMode="None" Background="{ThemeResource ListViewBackground}" CornerRadius="5,5,0,0" Padding="0,2,0,300">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*,200" ColumnSpacing="10" Padding="0,10,3,10" Opacity="{Binding IsAvailable, Converter={StaticResource ItemToOpacityConverter}}">
+                                <StackPanel Spacing="5">
+                                    <TextBlock Text="{Binding OriginalFileOrFolderName}" ToolTipService.ToolTip="{Binding OriginalFileOrFolderName}" FontSize="14" FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding OriginalFileOrFolderPath}" ToolTipService.ToolTip="{Binding OriginalFileOrFolderPath}" FontSize="12" Foreground="{ThemeResource Foreground2}"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Right">
+                                        <coreControls:IconButton Icon="&#xE946;" IsSquare="True" Variant="Text" Flyout="{StaticResource ItemInfoFlyout}"/>
+                                        <coreControls:IconButton Icon="&#xE711;" IsSquare="True" Variant="Text" Click="RemoveOneButton_Click" IsEnabled="{Binding IsEnabled}"/>
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Right">
+                                        <Border Width="24" Height="24" Visibility="{Binding Status, ConverterParameter=Processing, Converter={StaticResource EnumComparisonToBoolConverter}}">
+                                            <ProgressRing Width="20" Height="20" IsActive="True" Foreground="{ThemeResource ProgressRingForeground}"/>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding ErrorText}" Foreground="{ThemeResource Failure}" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <!--CONFIGS-->
+            <StackPanel Name="OutputConfigPanel" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" CornerRadius="10" Margin="10,0,0,10"
+                        Background="{ThemeResource WindowBackground}" BorderBrush="{ThemeResource Border}" BorderThickness="1">
+
+                <!--STANDARD OUTPUT-->
+                <StackPanel Width="350" Padding="10">
+                    <CheckBox Name="OverwriteExistingOutputFilesCheckBox" Content="{coreLibs:SRE K=Features_OverwriteExistingOutputFilesOrFolder}"/>
+
+                    <CheckBox Name="OriginalOutputCheckBox" Content="Export to the original location" Click="OriginalOutputCheckBox_Click"/>
+                    <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" ColumnSpacing="10">
+                        <TextBlock Text="{coreLibs:SRE K=Features_OutputFolder}" FontSize="11" FontWeight="Bold" VerticalAlignment="Center"/>
+                        <Grid Grid.Column="1" ColumnDefinitions="*,Auto">
+                            <TextBox Name="OutputFolderPathTextBox" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="7,7,0,0" CornerRadius="3,0,0,3" FontSize="12" IsReadOnly="True"/>
+                            <coreControls:IconButton Grid.Column="1" x:Name="OutputFolderButton" Icon="&#xE8DA;" Corner="Right" Click="OutputFolderButton_Click"/>
+                        </Grid>
+                    </Grid>
+
+                    <ItemsControl ItemsSource="{Binding ExportOptions}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <RadioButton Content="{Binding Text}" FontSize="14" IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <StackPanel Margin="0,10,0,0">
+                        <coreControls:ThemeIconTextButton x:Name="ExportButton" Icon="&#xE785;" Text="{coreLibs:SRE K=Export}" Click="ExportButton_Click"
+                                                  IsEnabled="{Binding Status, ConverterParameter=Loading|ProcessingAll, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <coreControls:IconButton x:Name="CancelButton" Icon="&#xE711;" IsSquare="True" Corner="None" Variant="Text" Click="CloseButton_Click"
+                                 VerticalAlignment="Top" HorizontalAlignment="Right"/>
+    </Grid>
+</iocore:IODialog>
