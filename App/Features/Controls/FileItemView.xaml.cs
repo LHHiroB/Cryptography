@@ -38,8 +38,6 @@ namespace IOApp.Features
 
             if (tag == "Play")
                 OnPlay?.Invoke(sender, EventArgs.Empty);
-            else if (tag == "Blur")
-                OnBlur?.Invoke(sender, EventArgs.Empty);
             else if (tag == "Properties")
                 await new PropertiesDialog(item).Dialog(App.CurrentWindow.Content.XamlRoot).ShowAsync();
             else if (tag == "Export")

@@ -181,7 +181,7 @@ namespace IOApp.Pages
 
             Player.PlaybackStopped += Player_PlaybackStopped;
 
-            _progress = new Progress<ProgressType>(async type =>
+            _progress = new Progress<ProgressType>(type =>
             {
                 if (type == ProgressType.PlaybackStopped)
                 {

@@ -13,7 +13,7 @@ namespace IOApp.Features
         private static readonly Lazy<AppProfile> lazy = new(() => new AppProfile());
         public static AppProfile Inst => lazy.Value;
 
-        private static string _PROFILE_LOCATION => "D:\\WorkSpaceFor_Y3\\NT219 - Cryptography\\Project-Cryptography-NT219";
+        private static string _PROFILE_LOCATION => "D:\\WorkSpaceFor_Y3\\SE400 - Seminar on modern issues of Software Technology\\Cryptography";
         public static string DEFAULT_STORAGE_LOCATION => Path.Combine(_PROFILE_LOCATION, "Storage");
 
         private readonly string _ENCRYPT_PROFILE_PASSWORD = "275010a649c4d5690f10dc49b9418456";

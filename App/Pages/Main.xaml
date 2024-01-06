@@ -26,6 +26,11 @@
             <MenuFlyoutItem Text="{coreLibs:SRE K=Features_ImportFiles}" Tag="ImportFiles" Click="InputFilesButton_Click"/>
             <MenuFlyoutItem Text="{coreLibs:SRE K=Features_ImportFolder}" Tag="ImportFolder" Click="InputFolderButton_Click" Visibility="{Binding FullSupport}"/>
         </MenuFlyout>
+
+        <MenuFlyout x:Name="MoreMenuFlyout" Placement="Bottom">
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Features_ExportSelected}" Tag="ExportSelected" Click="ActionButton_Click"/>
+            <MenuFlyoutItem Text="{coreLibs:SRE K=Features_PermanentlyDeleteSelected}" Tag="PermanentlyDeleteSelected" Click="ActionButton_Click"/>
+        </MenuFlyout>
     </iocore:IOPage.Resources>
 
     <!--MAIN_LAYOUT-->
@@ -42,6 +47,18 @@
                                                      IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"
                                                      Visibility="{Binding FullSupport, Converter={StaticResource InverseBoolConverter}}"/>
                     </StackPanel>
+                    <coreControls:IconTextButton Icon="&#xE762;" Text="{coreLibs:SRE K=Features_MoreActions}" Flyout="{StaticResource MoreMenuFlyout}"
+                                                 IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10">
+                    <TextBlock Text="{Binding FileCountText}" VerticalAlignment="Center"/>
+
+                    <coreControls:OptionToggleButtons ItemsSource="{Binding FilterItems}" SelectionChanged="MediaFilter_SelectionChanged"
+                                      IsEnabled="{Binding Status, ConverterParameter=Loading, Converter={StaticResource EnumComparisonToBoolInverterConverter}}"
+                                      Visibility="{Binding FullSupport}"/>
+
+                    <ComboBox Name="SortComboBox" Width="140" SelectionChanged="ActionComboBox_SelectionChanged"/>
                 </StackPanel>
             </Grid>
 
@@ -61,6 +78,7 @@
                     </GridView.ItemTemplate>
                 </GridView>
             </ScrollView>
+
         </Grid>
 
         <Grid Name="WelcomeBox">

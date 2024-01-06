@@ -10,7 +10,7 @@ namespace IOApp.Features
 {
     public class Footer
     {
-        public static readonly string SIGNATURE = "NT219Cryptography";
+        public static readonly string SIGNATURE = "SE400ProjectCryptography";
 
         public class Extras
         {

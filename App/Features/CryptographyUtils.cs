@@ -8,7 +8,7 @@ namespace IOApp.Features
 {
     public class CryptographyUtils
     {
-        public static readonly byte[] SALT = Encoding.UTF8.GetBytes("275010a649c4d5690f10dc49b9418456");
+        public static readonly byte[] SALT = Encoding.UTF8.GetBytes("LuongQuangHuy20521398NguyenKhoaHieu20521324");
         public static readonly int ITERATIONS = 2048;
 
         private static Aes GetAes(string password, byte[] salt, int iterations)

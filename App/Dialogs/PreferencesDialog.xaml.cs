@@ -33,7 +33,7 @@ namespace IOApp.Dialogs
 
         private void InitAllControls()
         {
-            StorageFolderPathTextBox.Text = "D:\\WorkSpaceFor_Y3\\NT219 - Cryptography\\Project-Cryptography-NT219\\File Location\\Encrypted";
+            StorageFolderPathTextBox.Text = "D:\\WorkSpaceFor_Y3\\SE400 - Seminar on modern issues of Software Technology\\Cryptography\\File Location\\Encrypted";
         }
 
         private bool IsAccessPasswordChanged()

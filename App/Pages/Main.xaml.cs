@@ -121,6 +121,13 @@ namespace IOApp.Pages
         public string StatusText => ProtectedResourceLoader.GetString(Share.STATUSES[_status]);
 
         //
+        public RangeObservableCollection<Option> FilterItems { get; private set; } = new();
+
+        private string _fileCountText = string.Empty;
+        public string FileCountText { get => _fileCountText; set => SetAndNotify(ref _fileCountText, value); }
+
+        private string _fileCount = "0";
+        public string FileCount { get => _fileCount; set => SetAndNotify(ref _fileCount, value); }
 
         public List<FileItem> SourceFileItems = new();
         public RangeObservableCollection<FileItem> FileItems { get; private set; } = new();
@@ -490,6 +497,14 @@ namespace IOApp.Pages
         {
             InputTypes = Profile.GetInputExtensionsTextByGroupFamily() + $", *";
 
+            foreach (var i in AppTypes.FILES)
+                FilterItems.Add(new(true) { Tag = i.Key, Text = ProtectedResourceLoader.GetString(i.Value) });
+            FilterItems[0].IsSelected = true;
+
+            foreach (var i in AppTypes.SORTS)
+                SortComboBox.Items.Add(new ComboBoxItem { Tag = i.Key, Content = ProtectedResourceLoader.GetString(i.Value.Item2) });
+            SortComboBox.SelectedIndex = 0;
+
             void fileItemsCollectionChangedAction()
             {
                 if (SourceFileItems.Count > 0)
@@ -502,6 +517,9 @@ namespace IOApp.Pages
                     WelcomeBox.Visibility = Visibility.Visible;
                     WorkBox.Visibility = Visibility.Collapsed;
                 }
+
+                FileCount = FileItems.Count.ToString();
+                FileCountText = $"{FileItems.Count} {ProtectedResourceLoader.GetString(FileItems.Count >= 2 ? "Files" : "File").ToLowerInvariant()}";
             };
 
             FileItems.CollectionChanged += (object sender, NotifyCollectionChangedEventArgs e) => fileItemsCollectionChangedAction();
@@ -614,10 +632,29 @@ namespace IOApp.Pages
 
         public void ApplyFilter()
         {
+            var filter = FilterItems.FirstOrDefault(i => i.IsSelected);
+            if (filter == null || SortComboBox.SelectedItem == null) return;
+
+            var filterTag = (AppTypes.FileType)filter.Tag;
+
             Status = Share.StatusType.Loading;
 
-            FileItems.ReplaceRange(SourceFileItems);
-            FileItems.SortStable((a, b) => string.Compare(a.OriginalFileOrFolderName, b.OriginalFileOrFolderName));
+            FileItems.ReplaceRange(
+                filterTag switch
+                {
+                    AppTypes.FileType.Video => SourceFileItems.Where(i => i.FileType == FileUtils.Type.Video),
+                    AppTypes.FileType.Audio => SourceFileItems.Where(i => i.FileType == FileUtils.Type.Audio),
+                    AppTypes.FileType.Image => SourceFileItems.Where(i => i.FileType == FileUtils.Type.Image),
+                    _ => SourceFileItems
+                }
+            );
+
+            var sortTag = (AppTypes.SortType)(SortComboBox.SelectedItem as ComboBoxItem).Tag;
+
+            if (sortTag == AppTypes.SortType.A2Z)
+                FileItems.SortStable((a, b) => string.Compare(a.OriginalFileOrFolderName, b.OriginalFileOrFolderName));
+            else if (sortTag == AppTypes.SortType.LastModified)
+                FileItems.SortStable((a, b) => DateTime.Compare(b.EncryptedInfo.FileSystemInfo.LastWriteTime, a.EncryptedInfo.FileSystemInfo.LastWriteTime));
 
             Status = Share.StatusType.Loaded;
         }
@@ -650,6 +687,29 @@ namespace IOApp.Pages
 
             e.Data.SetStorageItems(storageItems);
             e.Data.RequestedOperation = DataPackageOperation.Move;
+        }
+
+        private async void ActionButton_Click(object sender, RoutedEventArgs e)
+        {
+            if ((sender as FrameworkElement)?.Tag is not string tag) return;
+
+            var selectedItems = FileGridView.SelectedItems.Select(i => i as FileItem).ToList();
+
+            if (tag == "ExportSelected" && selectedItems.Count > 0)
+                await new ExportDialog(selectedItems).Dialog(App.CurrentWindow.Content.XamlRoot, true).ShowAsync();
+            else if (tag == "PermanentlyDeleteSelected" && selectedItems.Count > 0)
+            {
+                App.CurrentWindow.ShowConfirmTeachingTip(null, ProtectedResourceLoader.GetString("ClearSelectedItems"), ProtectedResourceLoader.GetString("CannotBeUndone"), () =>
+                {
+                    foreach (var item in selectedItems)
+                    {
+                        SourceFileItems.Remove(item);
+                        item.Destroy();
+                    }
+
+                    ApplyFilter();
+                });
+            }
         }
 
         public void Closed()

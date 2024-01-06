@@ -48,7 +48,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="D:\WorkSpaceFor_Y3\NT219 - Cryptography\Project-Cryptography-NT219\IOCore\IOCore.csproj" />
+    <ProjectReference Include="D:\WorkSpaceFor_Y3\SE400 - Seminar on modern issues of Software Technology\Cryptography\IOCore\IOCore.csproj" />
     <AdditionalFiles Include="NativeMethods.txt" />
   </ItemGroup>
 

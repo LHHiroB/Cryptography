@@ -353,23 +353,7 @@ namespace IOCore
 
         public async void PerformStandardMenuAction(string tag)
         {
-            if (tag == "Share")
-            {
-                var interop = DataTransferManager.As<IDataTransferManagerInterop>();
-                var transferManager = DataTransferManager.FromAbi(interop.GetForWindow(HandleIntPtr, Guid.Parse("a5caee9b-8708-49d1-8d36-67d25a8da00c")));
-
-                transferManager.DataRequested += (_, args) =>
-                {
-                    args.Request.Data = new();
-                    args.Request.Data.Properties.Title = Package.Current.DisplayName;
-                    args.Request.Data.SetWebLink(new(Meta.URL_WEB_STORE));
-                };
-
-                interop.ShowShareUIForWindow(HandleIntPtr);
-            }
-            else if (tag == "RateUs")
-                _ = Launcher.LaunchUriAsync(new(Meta.URL_APP_STORE_REVIEW));
-            else if (tag == "Exit")
+            if (tag == "Exit")
                 Application.Current.Exit();
             else
             {
@@ -378,7 +362,6 @@ namespace IOCore
                     IODialog dialog = tag switch
                     {
                         "Settings" => new SettingsDialog(),
-                        "About" => new AboutDialog(),
                         _ => null
                     };
 

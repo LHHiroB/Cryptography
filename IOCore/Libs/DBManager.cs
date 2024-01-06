@@ -7,7 +7,7 @@ namespace IOCore.Libs
 {
     public abstract class CoreDbContext : DbContext
     {
-        public static string DbPath = Path.Combine("D:\\WorkSpaceFor_Y3\\NT219 - Cryptography\\Project-Cryptography-NT219\\Database", "", "", "main.db");
+        public static string DbPath = Path.Combine("D:\\WorkSpaceFor_Y3\\SE400 - Seminar on modern issues of Software Technology\\Cryptography\\Database", "", "", "main.db");
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
