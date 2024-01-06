@@ -7,7 +7,7 @@ Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "App (Package)", "App (Packa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{511BE446-B5CB-49E0-BD93-ABA85F54CDFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOCore", "IOCore\IOCore.csproj", "{AC61210E-41CC-43D0-BC6F-B8821F2EAA44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOCore", "IOCore\IOCore.csproj", "{AC61210E-41CC-43D0-BC6F-B8821F2EAA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

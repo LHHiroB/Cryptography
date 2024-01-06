@@ -29,21 +29,21 @@ namespace IOApp
         {
             ResourceLimits.LimitMemory(new Percentage(90));
 
-            FFMpegCore.GlobalFFOptions.Configure(new FFMpegCore.FFOptions { BinaryFolder = Meta.EXTERNAL_DIR, TemporaryFilesFolder = Meta.TEMP_DIR });
+            //FFMpegCore.GlobalFFOptions.Configure(new FFMpegCore.FFOptions { BinaryFolder = Meta.EXTERNAL_DIR, TemporaryFilesFolder = Meta.TEMP_DIR });
 
-            FlyleafLib.Engine.Start(new()
-            {
-                FFmpegPath = Meta.EXTERNAL_DIR,
-                FFmpegDevices = false,    // Prevents loading avdevice/avfilter dll files. Enable it only if you plan to use dshow/gdigrab etc.
-                FFmpegLogLevel = FlyleafLib.FFmpegLogLevel.Quiet,
-                LogLevel = FlyleafLib.LogLevel.Quiet,
-                //LogOutput         = ":console",
-                //LogOutput         = @"C:\Flyleaf\Logs\flyleaf.log",                
-                //PluginsPath       = @"C:\Flyleaf\Plugins",
-                UIRefresh = false,    // Required for Activity, BufferedDuration, Stats in combination with Config.Player.Stats = true
-                UIRefreshInterval = 250,      // How often (in ms) to notify the UI
-                UICurTimePerSecond = true,     // Whether to notify UI for CurTime only when it's second changed or by UIRefreshInterval
-            });
+            //FlyleafLib.Engine.Start(new()
+            //{
+            //    FFmpegPath = Meta.EXTERNAL_DIR,
+            //    FFmpegDevices = false,    // Prevents loading avdevice/avfilter dll files. Enable it only if you plan to use dshow/gdigrab etc.
+            //    FFmpegLogLevel = FlyleafLib.FFmpegLogLevel.Quiet,
+            //    LogLevel = FlyleafLib.LogLevel.Quiet,
+            //    //LogOutput         = ":console",
+            //    //LogOutput         = @"C:\Flyleaf\Logs\flyleaf.log",                
+            //    //PluginsPath       = @"C:\Flyleaf\Plugins",
+            //    UIRefresh = false,    // Required for Activity, BufferedDuration, Stats in combination with Config.Player.Stats = true
+            //    UIRefreshInterval = 250,      // How often (in ms) to notify the UI
+            //    UICurTimePerSecond = true,     // Whether to notify UI for CurTime only when it's second changed or by UIRefreshInterval
+            //});
 
             Features.Share.EnsureDirs();
         }
